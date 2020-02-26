@@ -17,7 +17,9 @@
   font-family: "Karla";
   background: #fff;
 }
-
+#root {
+  overflow: hidden;
+}
 .app {
   width: 80%;
   margin: 0 auto;
@@ -30,6 +32,7 @@ h2 {
 
 h1 {
   position: relative;
+  font-size: 4rem;
 }
 
 h1:before {
@@ -37,7 +40,7 @@ h1:before {
   content: "";
   width: 150px;
   height: 1px;
-  background: var(--light_gray);
+  background: var(--grayish_blue);
   top: -50px;
 }
 
@@ -101,7 +104,7 @@ nav ul .logo {
 
 .banner {
   background: var(--violet);
-  height: 6`5vh;
+  height: 65vh;
   color: #fff;
   position: relative;
   z-index: 1;
@@ -115,9 +118,10 @@ nav ul .logo {
   position: absolute;
   width: 300px;
   height: 600px;
+  margin-left: -10%;
+  top: 460px;
+  background: url("./images/bg-pattern-intro-left-desktop.svg");
   background-repeat: no-repeat;
-  margin-left: -8%;
-  top: 505px;
 }
 .banner:after {
   clip-path: polygon(0 10%, 100% 10%, 100% 100%, 0 100%);
@@ -136,12 +140,11 @@ nav ul .logo {
 .banner .image {
   position: absolute;
   top: 145px;
-  right: 10%;
+  right: 11%;
   z-index: -3;
 }
 
 .banner h1 {
-  font-size: 4rem;
   width: 15ch;
   line-height: 4rem;
 }
@@ -152,7 +155,8 @@ nav ul .logo {
 
 footer,
 nav,
-.banner {
+.banner,
+section {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
@@ -181,16 +185,33 @@ footer ul li:hover {
 }
 
 .footer-body {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .footer-item {
+  flex: 1 0 300px;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   text-transform: uppercase;
   letter-spacing: 0.05rem;
+}
+
+.section-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 60px 0 100px;
+  flex-wrap: wrap;
+}
+
+.section_item {
+  flex: 1 0 300px;
+  margin: 30px 0;
+}
+.section_item > p {
+  width: 33ch;
 }
 
 .footer-item > .heading {
@@ -212,8 +233,53 @@ footer ul li:hover {
   font-weight: 600;
 }
 
+section.section-2 {
+  background: var(--violet);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+section.section-2 img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+}
+section.section-2 button {
+  position: relative;
+  z-index: 2;
+}
+
+section.section-2 > h1:before {
+  content: initial;
+}
+
 @media only screen and (min-width: 1200px) {
   .app {
     width: 100%;
+  }
+  .banner {
+    margin-bottom: 20em;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .footer-item {
+    align-items: center;
+  }
+  .footer-item > ul {
+    align-items: center;
+  }
+  .section_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .section_item > p {
+    text-align: center;
   }
 }
